@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="voice_button_background">@color/palette_gold</color>
+    <color name="voice_button_listening_background">@color/palette_parchment_deep</color>
+    <color name="voice_button_icon">@color/palette_charcoal</color>
+</resources>

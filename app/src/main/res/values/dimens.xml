@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="screen_padding">25dp</dimen>
+    <dimen name="toolbar_horizontal_padding">8dp</dimen>
+    <dimen name="resource_action_spacing">8dp</dimen>
+</resources>

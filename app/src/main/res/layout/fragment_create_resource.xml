@@ -1,0 +1,1542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/createModeTabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSurface"
+            app:tabIndicatorColor="?attr/colorPrimary"
+            app:tabRippleColor="?attr/colorPrimaryContainer"
+            app:tabSelectedTextColor="?attr/colorPrimary"
+            app:tabTextColor="?attr/colorOnSurfaceVariant">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_resource_mode_custom" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/create_resource_mode_homebrewery" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <Spinner
+            android:id="@+id/resourceTypeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/resourceNameInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/create_resource_name_hint" />
+
+        <EditText
+            android:id="@+id/resourceDescriptionInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/create_resource_description_hint" />
+
+        <EditText
+            android:id="@+id/homebreweryUrlInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/create_resource_homebrewery_url_hint" />
+
+        <EditText
+            android:id="@+id/genericBodyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="@string/create_resource_body_hint"
+            android:inputType="textMultiLine"
+            android:minLines="5" />
+
+        <LinearLayout
+            android:id="@+id/spellFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/spellLevelInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_level_hint"
+                android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/spellSchoolInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_spell_school_hint" />
+
+                <Button
+                    android:id="@+id/spellSchoolLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/spellCastingTimeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_casting_time_hint" />
+
+            <EditText
+                android:id="@+id/spellRangeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_range_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/spellVerbalInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/create_spell_component_verbal" />
+
+                <CheckBox
+                    android:id="@+id/spellSomaticInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/create_spell_component_somatic" />
+
+                <CheckBox
+                    android:id="@+id/spellMaterialComponentInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/create_spell_component_material" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/spellComponentsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_components_hint"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/spellMaterialInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_material_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/spellRitualInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/create_spell_ritual" />
+
+                <CheckBox
+                    android:id="@+id/spellConcentrationInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/create_spell_concentration" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/spellDurationInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_duration_hint" />
+
+            <EditText
+                android:id="@+id/spellAttackTypeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_attack_type_hint" />
+
+            <EditText
+                android:id="@+id/spellSaveAbilityInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_save_ability_hint" />
+
+            <EditText
+                android:id="@+id/spellSaveSuccessInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_spell_save_success_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/spellDamageTypeInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_spell_damage_type_hint" />
+
+                <Button
+                    android:id="@+id/spellDamageTypeLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/spellDamageScalingInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_spell_damage_scaling_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/spellHealingScalingInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_spell_healing_scaling_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <EditText
+                    android:id="@+id/spellAreaSizeInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_spell_area_size_hint"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/spellAreaTypeInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_spell_area_type_hint" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/spellClassesInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_spell_classes_hint" />
+
+                <Button
+                    android:id="@+id/spellClassesLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/spellSubclassesInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_spell_subclasses_hint" />
+
+                <Button
+                    android:id="@+id/spellSubclassesLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/spellDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_spell_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+            <EditText
+                android:id="@+id/spellHigherLevelInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_spell_higher_level_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/monsterFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/monsterImageUrlInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_image_url_hint"
+                android:inputType="textUri" />
+
+            <EditText
+                android:id="@+id/monsterSizeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_size_hint" />
+
+            <EditText
+                android:id="@+id/monsterTypeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_type_hint" />
+
+            <EditText
+                android:id="@+id/monsterAlignmentInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_alignment_hint" />
+
+            <EditText
+                android:id="@+id/monsterArmorClassInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_ac_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/monsterHitPointsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_hp_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/monsterHitDiceInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_hit_dice_hint" />
+
+            <EditText
+                android:id="@+id/monsterSpeedInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_speed_hint" />
+
+            <EditText
+                android:id="@+id/monsterAbilityScoresInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_abilities_hint" />
+
+            <EditText
+                android:id="@+id/monsterProficienciesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_monster_proficiencies_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/monsterDamageVulnerabilitiesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_damage_vulnerabilities_hint" />
+
+            <EditText
+                android:id="@+id/monsterDamageResistancesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_damage_resistances_hint" />
+
+            <EditText
+                android:id="@+id/monsterDamageImmunitiesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_damage_immunities_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/monsterConditionImmunitiesInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_monster_condition_immunities_hint" />
+
+                <Button
+                    android:id="@+id/monsterConditionImmunitiesLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/monsterSensesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_senses_hint" />
+
+            <EditText
+                android:id="@+id/monsterLanguagesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_languages_hint" />
+
+            <EditText
+                android:id="@+id/monsterChallengeRatingInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_challenge_rating_hint" />
+
+            <EditText
+                android:id="@+id/monsterXpInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_monster_xp_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/monsterTraitsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_monster_traits_hint"
+                android:inputType="textMultiLine"
+                android:minLines="4" />
+
+            <EditText
+                android:id="@+id/monsterActionsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_monster_actions_hint"
+                android:inputType="textMultiLine"
+                android:minLines="4" />
+
+            <EditText
+                android:id="@+id/monsterReactionsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_monster_reactions_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/monsterLegendaryActionsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_monster_legendary_actions_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/classFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/classHitDieInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_class_hit_die_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/classSavingThrowsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_class_saving_throws_hint" />
+
+            <EditText
+                android:id="@+id/classProficienciesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_class_proficiencies_hint" />
+
+            <EditText
+                android:id="@+id/classProficiencyChoicesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_class_proficiency_choices_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/classStartingEquipmentInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_class_starting_equipment_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/classStartingEquipmentOptionsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_class_starting_equipment_options_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/classSubclassesInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_class_subclasses_hint" />
+
+                <Button
+                    android:id="@+id/classSubclassesLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/classSpellcastingInfoInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_class_spellcasting_info_hint"
+                android:inputType="textMultiLine"
+                android:minLines="4" />
+
+            <EditText
+                android:id="@+id/classLevelsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_class_levels_hint"
+                android:inputType="textMultiLine"
+                android:minLines="6" />
+
+            <EditText
+                android:id="@+id/classFeaturesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_class_features_hint"
+                android:inputType="textMultiLine"
+                android:minLines="6" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/subclassFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/subclassClassInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_subclass_class_hint" />
+
+                <Button
+                    android:id="@+id/subclassClassLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/subclassFlavorInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_subclass_flavor_hint" />
+
+            <EditText
+                android:id="@+id/subclassDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_subclass_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+            <EditText
+                android:id="@+id/subclassLevelsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_subclass_levels_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+            <EditText
+                android:id="@+id/subclassFeaturesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_subclass_features_hint"
+                android:inputType="textMultiLine"
+                android:minLines="6" />
+
+            <EditText
+                android:id="@+id/subclassSpellsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_subclass_spells_hint"
+                android:inputType="textMultiLine"
+                android:minLines="4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/featureFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/featureLevelInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_feature_level_hint"
+                android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/featureClassInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_feature_class_hint" />
+
+                <Button
+                    android:id="@+id/featureClassLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/featureSubclassInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_feature_subclass_hint" />
+
+                <Button
+                    android:id="@+id/featureSubclassLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/featurePrerequisitesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_feature_prerequisites_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/featureDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_feature_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/conditionFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/conditionDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_condition_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/featFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/featPrerequisitesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_feat_prerequisites_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/featDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_feat_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/magicItemFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/magicItemCategoryInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_magic_item_category_hint" />
+
+            <EditText
+                android:id="@+id/magicItemRarityInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_magic_item_rarity_hint" />
+
+            <EditText
+                android:id="@+id/magicItemDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_magic_item_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/equipmentFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/equipmentCategoryInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_equipment_category_hint" />
+
+                <Button
+                    android:id="@+id/equipmentCategoryLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/equipmentGearCategoryInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_gear_category_hint" />
+
+            <EditText
+                android:id="@+id/equipmentCostQuantityInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_cost_quantity_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/equipmentCostUnitInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_cost_unit_hint" />
+
+            <EditText
+                android:id="@+id/equipmentWeightInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_weight_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/equipmentDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_equipment_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="4" />
+
+            <EditText
+                android:id="@+id/equipmentWeaponCategoryInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_weapon_category_hint" />
+
+            <EditText
+                android:id="@+id/equipmentWeaponRangeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_weapon_range_hint" />
+
+            <EditText
+                android:id="@+id/equipmentCategoryRangeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_category_range_hint" />
+
+            <EditText
+                android:id="@+id/equipmentDamageDiceInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_damage_dice_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/equipmentDamageTypeInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_equipment_damage_type_hint" />
+
+                <Button
+                    android:id="@+id/equipmentDamageTypeLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/equipmentTwoHandedDamageDiceInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_two_handed_damage_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/equipmentPropertiesInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_equipment_properties_hint" />
+
+                <Button
+                    android:id="@+id/equipmentPropertiesLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/equipmentRangeNormalInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_range_normal_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/equipmentRangeLongInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_range_long_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/equipmentArmorCategoryInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_armor_category_hint" />
+
+            <EditText
+                android:id="@+id/equipmentArmorBaseInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_armor_base_hint"
+                android:inputType="number" />
+
+            <CheckBox
+                android:id="@+id/equipmentArmorDexBonusInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_equipment_armor_dex_bonus" />
+
+            <EditText
+                android:id="@+id/equipmentArmorMaxBonusInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_armor_max_bonus_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/equipmentStrMinimumInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_str_minimum_hint"
+                android:inputType="number" />
+
+            <CheckBox
+                android:id="@+id/equipmentStealthDisadvantageInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/create_equipment_stealth_disadvantage" />
+
+            <EditText
+                android:id="@+id/equipmentToolCategoryInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_equipment_tool_category_hint" />
+
+            <EditText
+                android:id="@+id/equipmentContentsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_equipment_contents_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/backgroundFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/backgroundProficienciesInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_background_proficiencies_hint" />
+
+                <Button
+                    android:id="@+id/backgroundProficienciesLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/backgroundLanguageOptionsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_background_language_options_hint"
+                android:inputType="textMultiLine"
+                android:minLines="2" />
+
+            <EditText
+                android:id="@+id/backgroundStartingEquipmentInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_background_starting_equipment_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/backgroundStartingEquipmentOptionsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_background_starting_equipment_options_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/backgroundFeatureNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_background_feature_name_hint" />
+
+            <EditText
+                android:id="@+id/backgroundFeatureDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_background_feature_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="4" />
+
+            <EditText
+                android:id="@+id/backgroundPersonalityTraitsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_background_personality_traits_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/backgroundIdealsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_background_ideals_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/backgroundBondsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_background_bonds_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/backgroundFlawsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_background_flaws_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ruleSectionFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ruleSectionParentRuleInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_rule_section_parent_rule_hint" />
+
+                <Button
+                    android:id="@+id/ruleSectionParentRuleLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/ruleSectionDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_rule_section_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ruleSectionSubsectionsInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_rule_section_subsections_hint" />
+
+                <Button
+                    android:id="@+id/ruleSectionSubsectionsLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ruleFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/ruleDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_rule_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ruleSubsectionsInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_rule_subsections_hint" />
+
+                <Button
+                    android:id="@+id/ruleSubsectionsLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/ruleSectionsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_rule_sections_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/foundationFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/foundationDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_foundation_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/traitFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/traitDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_trait_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+            <EditText
+                android:id="@+id/traitProficienciesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_trait_proficiencies_hint" />
+
+            <EditText
+                android:id="@+id/traitChoicesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_trait_choices_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/traitSubtraitsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_trait_subtraits_hint"
+                android:inputType="textMultiLine"
+                android:minLines="4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/raceFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/raceSpeedInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_race_speed_hint"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/raceAbilityBonusesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_race_ability_bonuses_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/raceAlignmentInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_race_alignment_hint" />
+
+            <EditText
+                android:id="@+id/raceAgeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_race_age_hint" />
+
+            <EditText
+                android:id="@+id/raceSizeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/create_race_size_hint" />
+
+            <EditText
+                android:id="@+id/raceSizeDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_race_size_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/raceLanguageDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_race_language_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/raceAbilityChoicesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_race_ability_choices_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <EditText
+                android:id="@+id/raceLanguageChoicesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_race_language_choices_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/raceTraitsInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_race_traits_hint" />
+
+                <Button
+                    android:id="@+id/raceTraitsLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/raceTraitDetailsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_race_trait_details_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/raceSubracesInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_race_subraces_hint" />
+
+                <Button
+                    android:id="@+id/raceSubracesLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/subraceFieldsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/subraceParentRaceInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_subrace_parent_race_hint" />
+
+                <Button
+                    android:id="@+id/subraceParentRaceLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/subraceDescriptionInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_subrace_description_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+            <EditText
+                android:id="@+id/subraceAbilityBonusesInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_race_ability_bonuses_hint"
+                android:inputType="textMultiLine"
+                android:minLines="3" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/subraceTraitsInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/create_race_traits_hint" />
+
+                <Button
+                    android:id="@+id/subraceTraitsLinkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/create_reference_link" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/subraceTraitDetailsInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="@string/create_race_trait_details_hint"
+                android:inputType="textMultiLine"
+                android:minLines="5" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/saveResourceButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/create_resource_save" />
+
+    </LinearLayout>
+</ScrollView>

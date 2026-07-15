@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="palette_parchment">#EFE2C2</color>
+    <color name="palette_parchment_deep">#E3CC91</color>
+    <color name="palette_gold">#BA9F70</color>
+    <color name="palette_bronze">#987735</color>
+    <color name="palette_moss">#6E7661</color>
+    <color name="palette_forest">#404E42</color>
+    <color name="palette_bark">#62512C</color>
+    <color name="palette_charcoal">#2B3234</color>
+
+    <color name="app_background">@color/palette_parchment</color>
+    <color name="app_surface">@color/palette_parchment</color>
+    <color name="app_surface_container">@color/palette_parchment_deep</color>
+    <color name="app_surface_variant">@color/palette_gold</color>
+    <color name="app_primary">@color/palette_forest</color>
+    <color name="app_on_primary">@color/palette_parchment</color>
+    <color name="app_primary_container">@color/palette_moss</color>
+    <color name="app_on_primary_container">@color/palette_parchment</color>
+    <color name="app_secondary">@color/palette_bronze</color>
+    <color name="app_on_secondary">@color/palette_parchment</color>
+    <color name="app_outline">@color/palette_moss</color>
+    <color name="app_on_background">@color/palette_charcoal</color>
+    <color name="app_on_surface">@color/palette_charcoal</color>
+    <color name="app_on_surface_variant">@color/palette_forest</color>
+
+    <color name="voice_button_background">@color/palette_forest</color>
+    <color name="voice_button_listening_background">@color/palette_moss</color>
+    <color name="voice_button_icon">@color/palette_parchment</color>
+</resources>

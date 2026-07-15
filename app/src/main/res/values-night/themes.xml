@@ -1,0 +1,34 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.DnD_RulesLawyer" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/palette_charcoal</item>
+        <item name="android:fontFamily">@font/spectral</item>
+        <item name="fontFamily">@font/spectral</item>
+
+        <item name="colorPrimary">@color/palette_gold</item>
+        <item name="colorOnPrimary">@color/palette_charcoal</item>
+        <item name="colorPrimaryContainer">@color/palette_forest</item>
+        <item name="colorOnPrimaryContainer">@color/palette_parchment</item>
+        <item name="colorSecondary">@color/palette_parchment_deep</item>
+        <item name="colorOnSecondary">@color/palette_charcoal</item>
+        <item name="colorSurface">@color/palette_charcoal</item>
+        <item name="colorOnSurface">@color/palette_parchment</item>
+        <item name="colorSurfaceVariant">@color/palette_forest</item>
+        <item name="colorOnSurfaceVariant">@color/palette_parchment_deep</item>
+        <item name="colorSurfaceContainer">@color/palette_forest</item>
+        <item name="colorSurfaceContainerHigh">@color/palette_forest</item>
+        <item name="android:colorBackground">@color/palette_charcoal</item>
+        <item name="colorOnBackground">@color/palette_parchment</item>
+        <item name="colorOutline">@color/palette_moss</item>
+        <item name="colorAccent">@color/palette_gold</item>
+
+        <item name="android:textColorPrimary">@color/palette_parchment</item>
+        <item name="android:textColorSecondary">@color/palette_parchment_deep</item>
+        <item name="android:colorControlActivated">@color/palette_gold</item>
+        <item name="android:colorControlNormal">@color/palette_parchment_deep</item>
+
+        <item name="android:statusBarColor">@color/palette_charcoal</item>
+        <item name="android:navigationBarColor">@color/palette_charcoal</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+</resources>

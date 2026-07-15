@@ -1,0 +1,374 @@
+html {
+  background: #efe3c8;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #efe3c8;
+  color: #2b2118;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.phb {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 24px 32px 24px 24px;
+  background: #eee5ce;
+  line-height: 1.45;
+}
+
+.phb h1,
+.phb h2,
+.phb h3,
+.phb h4 {
+  color: #58180d;
+  font-weight: normal;
+  margin: 0.8em 0 0.35em;
+}
+
+.phb h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid #c9ad6a;
+}
+
+.phb h2 {
+  font-size: 1.45rem;
+  border-bottom: 1px solid #c9ad6a;
+}
+
+.phb h3 {
+  font-size: 1.1rem;
+}
+
+.phb p {
+  margin: 0.45rem 0;
+}
+
+.phb ul {
+  margin: 0.35rem 0 0.75rem 1.15rem;
+  padding: 0;
+}
+
+.phb .meta {
+  color: #5f4b32;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.phb .property {
+  margin: 0.25rem 0;
+}
+
+.phb .property strong {
+  color: #58180d;
+}
+
+.phb .resource-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
+.phb .section {
+  margin-top: 1rem;
+}
+
+.phb .descriptive {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: #faf7ea;
+  border: 2px solid #c9ad6a;
+}
+
+.phb .trait-title {
+  color: #58180d;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.phb .resource-image {
+  display: block;
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  margin: 0.75rem 0 1rem;
+}
+
+.phb table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.phb th,
+.phb td {
+  padding: 0.35rem;
+  border-bottom: 1px solid #d6c18a;
+}
+
+.phb .monster {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f7edcf;
+  border-top: 4px solid #922610;
+  border-bottom: 4px solid #922610;
+}
+
+.phb .monster h1 {
+  border-bottom: none;
+  margin-bottom: 0.1rem;
+}
+
+.phb .monster h2 {
+  margin-top: 1rem;
+  color: #58180d;
+  border-bottom: 1px solid #922610;
+}
+
+.phb .monster p {
+  margin: 0.45rem 0;
+}
+
+.phb .monster .monster-type {
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.phb .monster .rule {
+  height: 2px;
+  background: #922610;
+  margin: 0.75rem 0;
+}
+
+.phb .monster .property {
+  margin: 0.18rem 0;
+  color: #58180d;
+}
+
+.phb .monster .property strong {
+  font-weight: bold;
+}
+
+.phb .ability-table {
+  text-align: center;
+}
+
+.phb .ability-table th {
+  color: #922610;
+}
+
+.phb .spell {
+  max-width: 760px;
+}
+
+.phb .spell h1 {
+  margin-bottom: 0.1rem;
+}
+
+.phb .spell .section h2 {
+  font-size: 1.15rem;
+}
+
+.phb .spell-scaling-table {
+  max-width: 420px;
+  font-size: 0.88rem;
+  background: #f7edcf;
+}
+
+.phb .spell-scaling-table th {
+  color: #2b2118;
+  background: #f6efd7;
+  text-align: left;
+}
+
+.phb .spell-scaling-table td:first-child {
+  width: 7rem;
+  white-space: nowrap;
+}
+
+.phb .spell-scaling-table tbody tr:nth-child(odd) td {
+  background: #dce4b7;
+}
+
+.phb .spell-scaling-table tbody tr:nth-child(even) td {
+  background: #f6efd7;
+}
+
+.phb .spell-access {
+  margin-top: 1rem;
+}
+
+.phb .race-page {
+  max-width: 800px;
+}
+
+.phb .race-page h1 {
+  margin-bottom: 0.1rem;
+}
+
+.phb .race-feature {
+  margin: 0.5rem 0;
+}
+
+.phb .race-traits h2 {
+  margin-top: 1.2rem;
+}
+
+.phb .race-trait {
+  margin-top: 0.9rem;
+}
+
+.phb .race-trait h3 {
+  border-bottom: 1px solid #c9ad6a;
+  margin-bottom: 0.25rem;
+}
+
+.phb .race-choice {
+  margin-top: 0.9rem;
+}
+
+.phb .race-trait-table {
+  max-width: 560px;
+  font-size: 0.86rem;
+  background: #f7edcf;
+}
+
+.phb .race-trait-table th {
+  color: #2b2118;
+  background: #f6efd7;
+  text-align: left;
+}
+
+.phb .race-trait-table tbody tr:nth-child(odd) td {
+  background: #dce4b7;
+}
+
+.phb .race-trait-table tbody tr:nth-child(even) td {
+  background: #f6efd7;
+}
+
+.phb .class-page {
+  min-width: 920px;
+  padding-right: 28px;
+}
+
+.phb .subclass-page {
+  min-width: 720px;
+}
+
+.phb .class-page h3 {
+  color: #58180d;
+  margin-top: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.phb .class-table {
+  width: 100%;
+  table-layout: auto;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  background: #f7edcf;
+}
+
+.phb .class-table thead tr:empty {
+  display: none;
+}
+
+.phb .class-table th {
+  color: #2b2118;
+  background: #f6efd7;
+  line-height: 1.05;
+  text-align: center;
+  vertical-align: bottom;
+  white-space: normal;
+}
+
+.phb .class-table td {
+  vertical-align: top;
+}
+
+.phb .class-table tbody tr:nth-child(odd) td {
+  background: #dce4b7;
+}
+
+.phb .class-table tbody tr:nth-child(even) td {
+  background: #f6efd7;
+}
+
+.phb .class-table .number {
+  width: 1%;
+  min-width: 2rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.phb .class-table .features {
+  min-width: 220px;
+  text-align: left;
+  white-space: normal;
+}
+
+.phb .class-table .spell-column {
+  min-width: 1.8rem;
+}
+
+.phb .class-table .class-specific-column {
+  min-width: 2.8rem;
+}
+
+.phb .class-table .group-heading {
+  color: #2b2118;
+  background: #f6efd7;
+  border-bottom: 1px solid #58180d;
+  font-weight: normal;
+  text-align: center;
+}
+
+.phb .subclass-table .features {
+  min-width: 360px;
+}
+
+.phb .feature-block {
+  margin-top: 1rem;
+}
+
+.phb .feature-block h3 {
+  border-bottom: 1px solid #c9ad6a;
+}
+
+.phb .subclass-spell-group {
+  margin-top: 0.75rem;
+}
+
+.phb .subclass-spell-group h3 {
+  margin-top: 0.8rem;
+  border-bottom: 1px solid #c9ad6a;
+}
+
+.phb .subclass-spell-table {
+  width: 100%;
+  max-width: 520px;
+  font-size: 0.86rem;
+  background: #f7edcf;
+}
+
+.phb .subclass-spell-table th {
+  background: #f6efd7;
+  text-align: left;
+}
+
+.phb .subclass-spell-table td:first-child {
+  width: 4rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.phb .subclass-spell-table tbody tr:nth-child(odd) td {
+  background: #dce4b7;
+}
+
+.phb .subclass-spell-table tbody tr:nth-child(even) td {
+  background: #f6efd7;
+}
