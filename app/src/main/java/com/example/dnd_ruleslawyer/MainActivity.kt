@@ -3,6 +3,9 @@ package com.example.dnd_ruleslawyer
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.dnd_ruleslawyer.databinding.ActivityMainBinding
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        applyToolbarStatusBarInset()
         loadingOverlayController = LoadingOverlayController(
             root = binding.mainLoadingOverlay.root,
             flavorTextView = binding.mainLoadingOverlay.loadingFlavorText,
@@ -59,6 +63,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         handleIntent(intent)
+    }
+
+    private fun applyToolbarStatusBarInset() {
+        val toolbar = binding.mainToolbar
+        val initialHeight = toolbar.layoutParams.height
+        val initialTopPadding = toolbar.paddingTop
+
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar) { view, insets ->
+            val safeTop = insets.getInsets(
+                WindowInsetsCompat.Type.statusBars() or
+                    WindowInsetsCompat.Type.displayCutout()
+            ).top
+
+            view.updatePadding(top = initialTopPadding + safeTop)
+            view.layoutParams = view.layoutParams.apply {
+                height = initialHeight + safeTop
+            }
+
+            insets
+        }
+        ViewCompat.requestApplyInsets(toolbar)
     }
 
     override fun onNewIntent(intent: Intent) {

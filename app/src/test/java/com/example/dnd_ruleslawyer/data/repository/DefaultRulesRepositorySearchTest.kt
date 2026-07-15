@@ -31,8 +31,10 @@ class DefaultRulesRepositorySearchTest {
         val repository = createRepository()
         val spell = ruleResource(id = "custom:spells:fire", name = "Fire Spark", type = ResourceType.SPELL)
         val rule = ruleResource(id = "custom:rules:fire", name = "Fire Cover", type = ResourceType.RULE)
+        val rule2 = ruleResource(id = "custom:rules:fireDamage", name = "Fire Damage", type = ResourceType.RULE)
         repository.addCustomRule(spell)
         repository.addCustomRule(rule)
+        repository.addCustomRule(rule2)
         repository.setFavorite(rule.id, true)
 
         val results = repository.searchRules(

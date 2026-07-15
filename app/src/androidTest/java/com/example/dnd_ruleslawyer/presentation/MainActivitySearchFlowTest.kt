@@ -11,11 +11,14 @@ import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isChecked
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import androidx.test.espresso.matcher.ViewMatchers.isDescendantOfA
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.platform.app.InstrumentationRegistry
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.core.view.GravityCompat
@@ -39,6 +42,7 @@ import org.junit.Assert.assertEquals
 import org.junit.BeforeClass
 import org.junit.Test
 import org.hamcrest.Matcher
+import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.not
 
 class MainActivitySearchFlowTest {
@@ -65,7 +69,7 @@ class MainActivitySearchFlowTest {
             )
         )
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             onView(withId(R.id.queryInput)).perform(replaceText("fire"), submitSearchAction())
             onView(withText("Fireball")).check(matches(isDisplayed()))
         }
@@ -80,7 +84,7 @@ class MainActivitySearchFlowTest {
         )
         UIEntryPoint.replaceRulesRepositoryForTests(repository)
 
-        ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+        launchMainActivity().use { scenario ->
             onView(withId(R.id.mainLoadingOverlay)).check(matches(isDisplayed()))
 
             scenario.onActivity { activity ->
@@ -109,7 +113,7 @@ class MainActivitySearchFlowTest {
         )
         UIEntryPoint.replaceRulesRepositoryForTests(repository)
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             onView(withText(R.string.search_empty_prompt)).check(matches(isDisplayed()))
             onView(withText("Fireball")).check(doesNotExist())
             assertEquals(emptyList<String>(), repository.searchQueries)
@@ -157,7 +161,7 @@ class MainActivitySearchFlowTest {
         )
         UIEntryPoint.replaceRulesRepositoryForTests(repository)
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             onView(withText(R.string.search_empty_prompt)).check(matches(isDisplayed()))
             onView(withText("Fireball")).check(doesNotExist())
             onView(withText("Wizard")).check(doesNotExist())
@@ -201,7 +205,7 @@ class MainActivitySearchFlowTest {
             )
         )
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             onView(withText(R.string.filter_spells)).perform(click())
             onView(withText(R.string.filter_spell_cantrip)).check(matches(isDisplayed()))
             onView(withText("Level 3")).perform(click())
@@ -235,7 +239,7 @@ class MainActivitySearchFlowTest {
             )
         )
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             onView(withText(R.string.filter_monsters)).perform(click())
             onView(withId(R.id.monsterChallengeRatingSlider)).check(matches(isDisplayed()))
             onView(withText("Goblin")).check(matches(isDisplayed()))
@@ -268,7 +272,7 @@ class MainActivitySearchFlowTest {
             )
         )
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             onView(withId(R.id.queryInput)).perform(replaceText("fire"), submitSearchAction())
             onView(withId(R.id.main)).perform(waitForMainThreadAction(1_250))
             onView(withText("Fireball")).check(matches(isDisplayed()))
@@ -296,7 +300,7 @@ class MainActivitySearchFlowTest {
             )
         )
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             onView(withId(R.id.queryInput)).perform(replaceText("fire"), submitSearchAction())
             onView(withText("Fireball")).check(matches(isDisplayed()))
 
@@ -324,18 +328,43 @@ class MainActivitySearchFlowTest {
             )
         )
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             openFavoritesFromDrawer()
-            onView(withText("Fireball")).check(doesNotExist())
+            onView(
+                allOf(
+                    withText("Fireball"),
+                    isDescendantOfA(withId(R.id.favoritesRecyclerView))
+                )
+            ).check(doesNotExist())
 
             onView(withId(R.id.addFavoriteButton)).perform(click())
             onView(withId(R.id.addFavoriteQueryInput)).perform(replaceText("fire"), submitSearchAction())
-            onView(withId(R.id.resourceActionButton)).perform(click())
+            onView(
+                allOf(
+                    withId(R.id.resourceActionButton),
+                    isDescendantOfA(withId(R.id.addFavoriteResultsRecyclerView))
+                )
+            ).perform(click())
 
-            onView(withText("Fireball")).check(matches(isDisplayed()))
+            onView(
+                allOf(
+                    withText("Fireball"),
+                    isDescendantOfA(withId(R.id.favoritesRecyclerView))
+                )
+            ).check(matches(isDisplayed()))
 
-            onView(withId(R.id.resourceActionButton)).perform(click())
-            onView(withText("Fireball")).check(doesNotExist())
+            onView(
+                allOf(
+                    withId(R.id.resourceActionButton),
+                    isDescendantOfA(withId(R.id.favoritesRecyclerView))
+                )
+            ).perform(click())
+            onView(
+                allOf(
+                    withText("Fireball"),
+                    isDescendantOfA(withId(R.id.favoritesRecyclerView))
+                )
+            ).check(doesNotExist())
         }
     }
 
@@ -366,7 +395,7 @@ class MainActivitySearchFlowTest {
             )
         )
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             openFavoritesFromDrawer()
             onView(withText("Fireball")).check(matches(isDisplayed()))
             onView(withText("Wizard")).check(matches(isDisplayed()))
@@ -383,9 +412,9 @@ class MainActivitySearchFlowTest {
         val repository = FakeRulesRepository(resources = emptyList())
         UIEntryPoint.replaceRulesRepositoryForTests(repository)
 
-        ActivityScenario.launch(MainActivity::class.java).use {
+        launchMainActivity().use {
             openSettingsFromDrawer()
-            onView(withText(R.string.settings_title)).check(matches(isDisplayed()))
+            onView(withId(R.id.settingsTitleText)).check(matches(isDisplayed()))
 
             onView(withId(R.id.reloadOfficialResourcesButton)).perform(click(), waitForMainThreadAction())
 
@@ -404,7 +433,7 @@ class MainActivitySearchFlowTest {
         )
         UIEntryPoint.replaceRulesRepositoryForTests(repository)
 
-        ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+        launchMainActivity().use { scenario ->
             openSettingsFromDrawer()
             onView(withId(R.id.reloadOfficialResourcesButton)).perform(click())
 
@@ -448,13 +477,76 @@ class MainActivitySearchFlowTest {
     }
 
     private fun openFavoritesFromDrawer() {
+        waitForView(allOf(withId(R.id.mainLoadingOverlay), not(isDisplayed())))
         onView(withId(R.id.mainDrawer)).perform(openDrawerAction())
-        onView(withText(R.string.nav_favorites)).perform(click())
+        onView(
+            allOf(
+                withText(R.string.nav_favorites),
+                isDescendantOfA(withId(R.id.mainNavigationView))
+            )
+        ).perform(click())
+        waitForView(withId(R.id.addFavoriteButton))
     }
 
     private fun openSettingsFromDrawer() {
+        waitForView(allOf(withId(R.id.mainLoadingOverlay), not(isDisplayed())))
         onView(withId(R.id.mainDrawer)).perform(openDrawerAction())
-        onView(withText(R.string.nav_settings)).perform(click())
+        onView(
+            allOf(
+                withText(R.string.nav_settings),
+                isDescendantOfA(withId(R.id.settingsNavigationView))
+            )
+        ).perform(click())
+        waitForView(withId(R.id.settingsTitleText))
+    }
+
+    private fun launchMainActivity(): ActivityScenario<MainActivity> {
+        val scenario = ActivityScenario.launch(MainActivity::class.java)
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val deadline = android.os.SystemClock.uptimeMillis() + 30_000
+
+        do {
+            var hasWindowFocus = false
+            scenario.onActivity { activity ->
+                hasWindowFocus = activity.hasWindowFocus()
+            }
+            if (hasWindowFocus) return scenario
+
+            instrumentation.waitForIdleSync()
+            android.os.SystemClock.sleep(100)
+        } while (android.os.SystemClock.uptimeMillis() < deadline)
+
+        scenario.close()
+        throw AssertionError("MainActivity did not receive window focus within 30 seconds")
+    }
+
+    private fun waitForView(matcher: Matcher<View>, timeoutMillis: Long = 5_000) {
+        onView(isRoot()).perform(
+            object : ViewAction {
+                override fun getConstraints(): Matcher<View> = isRoot()
+
+                override fun getDescription(): String = "wait up to $timeoutMillis ms for $matcher"
+
+                override fun perform(uiController: UiController, view: View) {
+                    val deadline = android.os.SystemClock.uptimeMillis() + timeoutMillis
+                    do {
+                        if (view.anyDescendantOrSelf(matcher::matches)) return
+                        uiController.loopMainThreadForAtLeast(50)
+                    } while (android.os.SystemClock.uptimeMillis() < deadline)
+
+                    throw AssertionError("Timed out waiting for view matching $matcher")
+                }
+            }
+        )
+    }
+
+    private fun View.anyDescendantOrSelf(predicate: (View) -> Boolean): Boolean {
+        if (predicate(this)) return true
+        if (this !is ViewGroup) return false
+
+        return (0 until childCount).any { index ->
+            getChildAt(index).anyDescendantOrSelf(predicate)
+        }
     }
 
     private fun openDrawerAction(): ViewAction {
@@ -464,8 +556,8 @@ class MainActivitySearchFlowTest {
             override fun getDescription(): String = "open drawer"
 
             override fun perform(uiController: UiController, view: View) {
-                (view as DrawerLayout).open()
-                uiController.loopMainThreadForAtLeast(250)
+                (view as DrawerLayout).openDrawer(GravityCompat.START, false)
+                uiController.loopMainThreadUntilIdle()
             }
         }
     }
