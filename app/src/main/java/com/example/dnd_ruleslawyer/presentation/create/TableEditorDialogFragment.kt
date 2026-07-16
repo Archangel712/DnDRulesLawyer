@@ -14,6 +14,9 @@ import android.widget.HorizontalScrollView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import com.example.dnd_ruleslawyer.R
@@ -114,6 +117,17 @@ class TableEditorDialogFragment : DialogFragment() {
             gravity = Gravity.CENTER_VERTICAL
             setPadding(dp(8), dp(8), dp(8), dp(8))
             setBackgroundColor(themeColor(com.google.android.material.R.attr.colorPrimary))
+
+            val initialTopPadding = paddingTop
+            ViewCompat.setOnApplyWindowInsetsListener(this) { view, insets ->
+                val safeTop = insets.getInsets(
+                    WindowInsetsCompat.Type.statusBars() or
+                        WindowInsetsCompat.Type.displayCutout()
+                ).top
+                view.updatePadding(top = initialTopPadding + safeTop)
+                insets
+            }
+            ViewCompat.requestApplyInsets(this)
 
             addView(toolbarButton(text = "X", contentDescription = getString(android.R.string.cancel)) {
                 dismiss()
